@@ -5,22 +5,37 @@
   <div class="panel-heading">
     メッセージ一覧
   </div>
-
-    
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-lg-4"></div>
+        <div class="col-xs-6 col-lg-4"></div>
+        <div class="col-xs-12 col-lg-4"></div>
+          <div class="panel-body">
+            <% @messages.each do |message| %>
+              <span class="label label-info"><%= message.name %></span>
+              <%= message.body %>
+              <br>
+            <% end %>
+          </div>
+        
+        
+            <%= form_for(@message) do |f| %>
+                  <div class="text_field">  
+                    名前:
+                    <div class="field">
+                      <%= f.text_field :name %>
+                    </div>
+                  </div>
+                
+                  <div class="text_area">
+                    内容:
+                    <div class="area">
+                      <%= f.text_area :body %>
+                    </div>
+                  </div>
+                  <span><%= f.submit class: "btn btn-sm btn-primary" %></span>
+            <% end %>
+      </div>
   </div>
 </div>
-
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
