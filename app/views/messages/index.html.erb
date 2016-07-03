@@ -13,6 +13,9 @@
           <div class="col-md-10">
             <%= message.body %>
           </div>
+          ( <%= link_to "edit" , edit_message_path(message) %>
+            <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+          )
           <br>
         <% end %>
       </div>
@@ -20,44 +23,4 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <%= form_for @message , html:{ class:'form-horizontal' } do |f| %>
-      <% if @message.errors.present? %>
-        <div class="alert alert-danger">
-          <%= alert %>
-          <ul>
-            <% @message.errors.full_messages.each do |full_message| %>
-              <li>
-                <%= full_message %>
-              </li>
-            <% end %> 
-          </ul>
-        </div>
-      <% end %>
-      <div class="form-group">
-        <div class="col-md-3">
-          <%= f.label :name, "名前:", class: "control-label" %>
-        </div>
-        <div class="col-md-9">
-           <%= f.text_field :name , class:"form-control" , placeholder:"name"%>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-md-3">
-          <%= f.label :body, "内容:", class: "control-label" %>
-        </div>
-        <div class="col-md-9">
-          <%= f.text_area  :body, class:"form-control" ,placeholder:"something to say"%>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-            <%= f.submit "Create Message", class: "btn btn-sm btn-primary" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render 'form' %>
