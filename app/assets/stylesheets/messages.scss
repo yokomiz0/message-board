@@ -9,15 +9,18 @@
 
 .container{
     width:auto;
+    margin:0px 20px 0px 20px;
+
 }
 
 .form-group { 
-    width:700px;
-    margin:20px 0px;
+    max-width:700px;
+    margin:20px 10px;
 
 }
-
-
+.alert {
+    margin:10px 20px 10px 20px;
+}
 
 /*.btn {
     margin:0px 0px 20px 20px;
@@ -27,7 +30,7 @@
 .contents{
     
 }
-
+/*
 .text_field{
     display: inline-block;
      margin:0px 0px 0px 20px;
@@ -45,5 +48,12 @@
 
 .area{
     display: inline-block;
-    margin:0px 0px 0px 10px;
+    margin:0px 0px 0px 0px;
+}
+*/
+
+.field_with_errors{
+  display: inline-block;
+  border: 1px solid #f00;
+  width: 100%;
 }
