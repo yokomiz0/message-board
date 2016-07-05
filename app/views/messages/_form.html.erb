@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row">
+
     <%= form_for @message , html:{ class:'form-horizontal' } do |f| %>
       <% if @message.errors.present? %>
         <div class="alert alert-danger">
@@ -21,21 +20,28 @@
            <%= f.text_field :name , class:"form-control" , placeholder:"name"%>
         </div>
       </div>
-
-      <div class="form-group">
-        <div class="col-md-3">
-          <p><%= f.label :body, "内容:", class: "control-label" %></p>
-        </div>
-        <div class="col-md-9">
-          <%= f.text_area  :body, class:"form-control" ,placeholder:"something to say"%>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-            <%= f.submit "Create Message", class: "btn btn-sm btn-primary" %>
-        </div>
-      </div>
-    <% end %>
+      
+  <div class="form-group">
+    <div class="col-md-3">
+      <p><%= f.label :age, "年齢:", class: "control-label" %></p>
+    </div>
+    <div class="col-md-9">
+       <%= f.text_field :age, class:"form-control" , placeholder:"age"%>
+    </div>
   </div>
-</div>
+
+  <div class="form-group">
+    <div class="col-md-3">
+      <p><%= f.label :body, "内容:", class: "control-label" %></p>
+    </div>
+    <div class="col-md-9">
+      <%= f.text_area  :body, class:"form-control" ,placeholder:"something to say"%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit "Create Message", class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+<% end %>
